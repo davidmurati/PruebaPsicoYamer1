@@ -18,7 +18,7 @@ function App() {
         <img src={imagen1} className="App-logo" alt="logo" />
 
         <p>Selecciona uno de los test para comenzar. ¡Te deseamos mucho éxito!</p>
-        <p>Al finalizar se generará un archovo txt que deberas enviar a la profesora para su interpretación.</p>
+        <p>Al finalizar se generará un archivo txt que deberas enviar a la profesora para su interpretación.</p>
       </div>
 
       <button className="boton1" onClick={() => window.location.href = "/Test1"}>
