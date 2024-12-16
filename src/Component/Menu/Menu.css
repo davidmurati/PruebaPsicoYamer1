@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .app-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .App-logo {
+    max-width: 200px; /* Máximo tamaño de la imagen */
+    height: auto; /* Mantiene la proporción */
+    display: block;
+    margin: 20px auto; /* Centra la imagen */
+    border: 2px solid #ddd; /* Borde sutil */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .welcome-message h1 {
+    font-size: 2.5rem;
+    color: #2C3E50;
+  }
+  
+  .welcome-message p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .menu-container button, .test-container button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  button.boton1 {
+    background-color: #4CAF50;
+    background-color: #1f5081;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: auto;  /* Hace que el botón ocupe todo el ancho disponible */
+    max-width: 300px; /* Limita el ancho máximo del botón */
+    margin: 15px;  /* Agrega un espacio superior */
+    transition: background-color 0.3s ease;
+  }
+
+  button.boton1:hover {
+    background-color: #45a049;
+  }
+  
+  
+  .menu-container button:hover, .test-container button:hover {
+    background-color: #2980b9;
+  }
+  
+  .test-container h2 {
+    color: #27ae60;
+  }
+  
+  .test-container p {
+    font-size: 1.2rem;
+  }

@@ -1,0 +1,147 @@
+/* Estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;  /* Centra el contenido horizontalmente */
+  align-items: center;      /* Centra el contenido verticalmente */
+
+}
+
+/* Contenedor */
+.container {
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;   /* Fondo blanco para el contenedor */
+  border-radius: 8px;       /* Bordes redondeados para un diseño más suave */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;      /* Centra el contenido dentro del contenedor */
+  text-align: center;       /* Centra los textos dentro del contenedor */
+}
+
+/* Títulos */
+h1 {
+  color: #333;
+  font-size: 2rem;
+}
+
+/* Formulario */
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;  /* Asegura que el formulario no se salga del contenedor */
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Campos de texto */
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* Sección de preguntas */
+div.question {
+  margin-bottom: 20px;
+}
+
+div.question p {
+  margin-bottom: 10px;
+}
+
+/* Estilos del botón */
+button.boton {
+  background-color: #4CAF50;
+  background-color: #1f5081;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;  /* Hace que el botón ocupe todo el ancho disponible */
+  max-width: 300px; /* Limita el ancho máximo del botón */
+  margin-top: 15px;  /* Agrega un espacio superior */
+  transition: background-color 0.3s ease;
+}
+
+button.boton:hover {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Estilos para resultados */
+#results {
+  background-color: #f4f4f4;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+#results p {
+  margin: 5px 0;
+}
+
+#results h2 {
+  margin-top: 0;
+}
+
+/* Estilo para el input de archivo */
+input[type="file"] {
+  padding: 8px;
+  margin-top: 10px;
+  width: 100%; /* Asegura que el input de archivo ocupe todo el ancho */
+  max-width: 300px; /* Limita el ancho del input de archivo */
+}
+
+input[type="text"]::placeholder {
+  color: #888;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;  /* Reduce el padding en dispositivos pequeños */
+  }
+
+  button.boton {
+    padding: 12px 20px;  /* Ajusta el tamaño del botón en pantallas pequeñas */
+    font-size: 14px;
+    max-width: 90%;  /* El botón puede ocupar más espacio en pantallas pequeñas */
+  }
+
+  input[type="text"],
+  input[type="file"] {
+    font-size: 14px;
+  }
+
+  #results {
+    padding: 10px;
+  }
+}
