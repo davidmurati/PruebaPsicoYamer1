@@ -13,7 +13,7 @@ const preguntas = [
       "Pidiéndoles les permitan hacer los trabajos que usted puede hacer mejor."
     ],
     respuestaCorrecta: 2,
-    habilidad: "CAPACIDAD DE EVALUACION DE PROBLEMAS INTERPERSONALES"
+    habilidad: "HABILIDAD PARA ESTABLECER RELACIONES INTERPERSONALES"
   },{
     texto: "2) Tiene usted un empleado muy eficiente pero que constantemente se queja del trabajo, sus quejas producen mal efecto en los demás empleados, lo mejor sería:",
     opciones: [
@@ -111,7 +111,7 @@ const preguntas = [
         "Pedir al jefe todo el consejo necesario."
     ],
     respuestaCorrecta: 2,
-    habilidad: "CAPACIDAD DE EVALUACION DE PROBLEMAS INTERPERSONALES"
+    habilidad: "HABILIDAD PARA ESTABLECER RELACIONES INTERPERSONALES"
 },
 {
     texto: "11) Es usted un joven empleado que va a comer con una maestra a quien conoce superficialmente. Lo mejor sería iniciar la conversación acerca de:",
@@ -122,7 +122,7 @@ const preguntas = [
         "Las sociedades de padres de familia."
     ],
     respuestaCorrecta: 0,
-    habilidad: "CAPACIDAD DE EVALUACION DE PROBLEMAS INTERPERSONALES"
+    habilidad: "HABILIDAD PARA ESTABLECER RELACIONES INTERPERSONALES"
 },
 {
     texto: "12) Una señora de especiales méritos que por largo tiempo ha dirigido trabajos benéficos dejando las labores de su casa a cargo de la servidumbre, se cambia a otra población. Es de esperarse que ella:",
@@ -144,7 +144,7 @@ const preguntas = [
         "Decir que lo que desea en forma breve indicando los motivos."
     ],
     respuestaCorrecta: 3,
-    habilidad: "CAPACIDAD DE EVALUACION DE PROBLEMAS INTERPERSONALES"
+    habilidad: "HABILIDAD PARA ESTABLECER RELACIONES INTERPERSONALES"
 },
 {
     texto: "14) Un joven de 24 años gasta bastante tiempo y dinero en diversiones, solo ha hecho ver que así no logrará al éxito en el trabajo. Probablemente cambie sus costumbres si:",
@@ -276,7 +276,7 @@ const preguntas = [
         "Enviar avisos personales."
     ],
     respuestaCorrecta: 1,
-    habilidad: "CAPACIDAD DE EVALUACION DE PROBLEMAS INTERPERSONALES"
+    habilidad: "HABILIDAD PARA ESTABLECER RELACIONES INTERPERSONALES"
 },
 {
     texto: "26) Salinas, eficiente, pero de esos que “todo lo saben”, critica a Montoya, el jefe opina que la idea de Montoya ahorra tiempo. Probablemente Salinas:",
@@ -367,11 +367,15 @@ const MossTest = () => {
       "SENTIDO COMUN Y TACTO EN LAS RELACIONES INTERPERSONALES": 0
     };
 
-    preguntas.forEach((pregunta, index) => {
-      if (respuestas[index] === pregunta.respuestaCorrecta) {
+     // Recorre las preguntas y verifica las respuestas
+  preguntas.forEach((pregunta, index) => {
+    if (respuestas[index] === pregunta.respuestaCorrecta) {
+      // Suma 1 a la habilidad correspondiente
+      if (resultadosIniciales[pregunta.habilidad] !== undefined) {
         resultadosIniciales[pregunta.habilidad]++;
       }
-    });
+    }
+  });
 
     const resultadosConPorcentajes = {};
     for (const habilidad in resultadosIniciales) {
@@ -441,7 +445,7 @@ const MossTest = () => {
       alert("Por favor, seleccione un archivo.");
       return;
     }
-
+  
     const clave = claveInput;
     const reader = new FileReader();
     reader.onload = (event) => {
@@ -449,7 +453,16 @@ const MossTest = () => {
       try {
         const bytes = CryptoJS.AES.decrypt(contenidoEncriptado, clave);
         const originalText = bytes.toString(CryptoJS.enc.Utf8);
+  
+        // Mostrar el resultado en pantalla
         alert("Contenido desencriptado:\n" + originalText);
+  
+        // Descargar el archivo desencriptado como .txt
+        const blob = new Blob([originalText], { type: 'text/plain;charset=utf-8' });
+        const enlace = document.createElement('a');
+        enlace.href = URL.createObjectURL(blob);
+        enlace.download = `Resultados_Desencriptados_${cedula}.txt`;
+        enlace.click();
       } catch (error) {
         alert("Clave incorrecta o archivo dañado.");
       }
@@ -479,6 +492,8 @@ const MossTest = () => {
             style={{ display: 'block', margin: '10px 0', padding: '8px', width: '100%' }}
           />
         </div>
+
+        
 
         {preguntas.map((pregunta, index) => (
           <div key={index} style={{ marginBottom: '20px', borderBottom: '1px solid #ddd', paddingBottom: '10px' }}>
